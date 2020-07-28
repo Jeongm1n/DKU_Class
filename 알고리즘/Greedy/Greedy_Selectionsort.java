@@ -3,31 +3,31 @@ package Homework;
 public class Greedy_Selectionsort {
 	static void GreedySort(int a[], int n) {
 		int temp;
-		for (int i = 0; i < n - 1; i++) { // È¿À²¼ºÀ» À§ÇØ n-1¹ø¸¸Å­ ¹İº¹
-			int min = a[i]; // ³²Àº ¿ø¼Ò Áß¿¡¼­ ÃÖ¼Ò°ªÀ» Ã£±â À§ÇÑ ±âÁØ
-			int index = i;  // ³²Àº ¿ø¼Ò Áß¿¡¼­ ÃÖ¼Ò ¿ø¼ÒÀÇ ÀÎµ¦½º¸¦ ÀúÀåÇÒ º¯¼ö
-			for (int j = i; j < n; j++) {  // ³²Àº ¿ø¼Òµé ºñ±³
+		for (int i = 0; i < n - 1; i++) { // íš¨ìœ¨ì„±ì„ ìœ„í•´ n-1ë²ˆë§Œí¼ ë°˜ë³µ
+			int min = a[i]; // ë‚¨ì€ ì›ì†Œ ì¤‘ì—ì„œ ìµœì†Œê°’ì„ ì°¾ê¸° ìœ„í•œ ê¸°ì¤€
+			int index = i;  // ë‚¨ì€ ì›ì†Œ ì¤‘ì—ì„œ ìµœì†Œ ì›ì†Œì˜ ì¸ë±ìŠ¤ë¥¼ ì €ì¥í•  ë³€ìˆ˜
+			for (int j = i; j < n; j++) {  // ë‚¨ì€ ì›ì†Œë“¤ ë¹„êµ
 				if (min > a[j]) {
 					min = a[j];
 					index = j;
 				}
 			}
 			temp = a[i];
-			a[i] = min;       // ³²Àº ¿ø¼Ò Áß¿¡¼­ °¡Àå ÀÛÀº ¿ø¼Ò¸¦
-			a[index] = temp;  // ¸Ç ¾ÕÀÇ ¿ø¼Ò¿Í ±³È¯
+			a[i] = min;       // ë‚¨ì€ ì›ì†Œ ì¤‘ì—ì„œ ê°€ì¥ ì‘ì€ ì›ì†Œë¥¼
+			a[index] = temp;  // ë§¨ ì•ì˜ ì›ì†Œì™€ êµí™˜
 
 		}
-		System.out.println("Á¤·Ä ÈÄ µ¥ÀÌÅÍ");
+		System.out.println("ì •ë ¬ í›„ ë°ì´í„°");
 		for (int i = 0; i < n; i++)
 			System.out.print(a[i] + " ");
 	}
 
 	public static void main(String[] args) {
-		int[] arr = { 10,9,8,7,6,5,4,3,2,1 }; // Á¤·ÄÇÒ µ¥ÀÌÅÍ ÃÊ±âÈ­
-		System.out.println("Á¤·Ä Àü µ¥ÀÌÅÍ");
+		int[] arr = { 10,9,8,7,6,5,4,3,2,1 }; // ì •ë ¬í•  ë°ì´í„° ì´ˆê¸°í™”
+		System.out.println("ì •ë ¬ ì „ ë°ì´í„°");
 		for (int i = 0; i < 10; i++)
 			System.out.print(arr[i] + " ");
 		System.out.println();
 		GreedySort(arr, 10);
-	}
-} // ¼ÒÇÁÆ®¿ş¾îÇĞ°ú 32164420 Á¶Á¤¹Î
+	} 
+} // ì†Œí”„íŠ¸ì›¨ì–´í•™ê³¼ 32164420 ì¡°ì •ë¯¼
