@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>9주차과제</title>
+	<style type="text/css">
+		table{
+			border: 1px solid;
+			border-collapse: collapse;
+		}
+		td{
+			border: 1px solid;
+			width: 50px;
+			height: 50px;
+			padding: 0px;
+		z}
+	</style>
+</head>
+<body onload="set()">
+	<h3>마우스 클릭 연습</h3>
+	<hr>
+	<table id="table"></table>
+
+	<script type="text/javascript">
+		let select = 0,
+		img = new Image();
+		img.src = "donkey.jpeg";
+		function set(){
+			const table = document.getElementById("table");
+
+			for(var i = 0; i < 10; i++){
+				let row	= document.createElement("tr");
+				for(var j = 0; j < 10; j++){
+					let col = document.createElement("td");
+					col.innerHTML = "<img src=''>";
+					row.appendChild(col);
+				}
+				table.appendChild(row);
+			}
+
+			for(var i =0 ; i < 100; i++){
+				document.images[i].onclick = moveImage;
+			}
+			moveImage();
+		}
+
+		function moveImage(){
+			document.images[select].src = "";
+			select = Math.floor(Math.random()*100);
+			document.images[select].src = img.src;
+		}
+	</script>
+</body>
+</html>

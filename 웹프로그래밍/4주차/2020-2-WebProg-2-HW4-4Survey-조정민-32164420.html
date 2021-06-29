@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>소프트웨어 기술 설문조사</title>
+	<style type="text/css">
+		body{
+			background-color: aliceblue;
+			font-family: 휴먼편지체;
+			font-size: 1em;
+		}
+		p, form{
+			text-indent: 1em;
+		}
+		h1{
+			color: brown;
+			text-align: center;
+			font-family: initial;
+		}
+		form{
+			background-color: pink;
+		}
+		footer{
+			background-color: orange;
+			border-radius: 0.5em;
+		}
+		span{
+			color: blue;
+			font-weight: bolder;
+			font-family: initial;
+		}
+
+	</style>
+</head>
+<body>
+	<header>
+		<h1>설문지</h1>
+		<p>소프트웨어 기술에 대한 의견을 듣습니다. 많은 참여 부탁드립니다.</p>
+	</header>
+	<hr>
+	<form>
+		<div>
+			<span>학년</span>
+			<input type="checkbox" name="grade1">1학년
+			<input type="checkbox" name="grade2">2학년
+			<input type="checkbox" name="garde3" checked>3학년
+			<input type="checkbox" name="grade4">4학년
+		</div>
+		<br>
+		<div>
+			<span>성별</span>
+			<input type="checkbox" name="gender_m" checked>남
+			<input type="checkbox" name="gender_f">여
+		</div>
+		<br>
+		<div>
+			<span>관심 분야<sapn>
+			<select id="tech">
+				<option selected>모바일 소프트웨어</option>
+				<option>그래픽 소프트웨어</option>
+				<option>인터넷 소프트웨어</option>
+				<option>오락 게임 엔진</option>
+			</select>
+		</div>
+		<br>
+		<div>
+			<span>진로(다중 선택)</span>
+			<input type="checkbox" name="career1" checked="">개발
+			<input type="checkbox" name="career2">기획
+			<input type="checkbox" name="career3">영업
+			<input type="checkbox" name="career4">창업
+		</div>
+		<br>
+		<div>
+			<span>남기고 싶은 말</span>
+			<textarea name="comment" rows="7" cols="40" wrap="virtual" placeholder="글을 남겨주세요."></textarea>
+		</div>
+	</form>
+	<footer>
+		<p><small>Copyright 2020 by Jeongmin</small></p>
+	</footer>
+</body>
+</html>

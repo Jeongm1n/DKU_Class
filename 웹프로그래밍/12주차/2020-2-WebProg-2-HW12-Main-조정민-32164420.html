@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>캔버스에 파이 차트 그리기</title>
+</head>
+<body>
+	<h2>학점 별로 학생 수를 입력하면 파이 차트로 비율 그리기</h2>
+	<hr>
+	<form action="drawChart()">
+		A <input type="number" name="data[]" value="0"> 명
+		B <input type="nubmer" name="data[]" value="0"> 명
+		C <input type="number" name="data[]" value="0"> 명
+		<p></p>
+		D <input type="nubmer" name="data[]" value="0"> 명
+		F <input type="number" name="data[]" value="0"> 명
+		<input type="button" id="button" value="차트그리기">
+	</form>
+	<canvas id="myCanvas" width="700" height="700"></canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById("myCanvas");
+		var context = canvas.getContext("2d");
+		var btn = document.getElementById('button');
+		var data=[];
+		var color = ["blue", "green", "yellow", "magenta", "red"];
+		var grades = ["A", "B", "C", "D", "F"];
+
+		btn.addEventListener('click', drawChart);
+
+		function drawChart(){
+			context.clearRect(0, 0, canvas.width, canvas.height);
+			var center_X = 700/2;
+			var center_Y = 700/2;
+			var radius = Math.min(700-(100*2), 700-(100*2)) / 2;
+			var angle = 0;
+			var total = 0;
+
+			for(var i=0; i<5; i++){
+				data[i] = parseInt(document.getElementsByName("data[]")[i].value);
+				total+=data[i];
+			}
+			for(var i=0; i<5; i++){
+				context.font = "bold 18px dotum";
+				context.fillStyle = "#1E82FF";
+				context.fillText(`${grades[i]} 학점${parseInt((data[i]/total)*100)}%: ${color[i]}`, 30, 50+(i*19));
+				context.fillStyle = color[i];
+				context.beginPath();
+				context.moveTo(center_X, center_Y);
+				context.arc(center_X, center_Y, radius, angle, angle + (Math.PI*2*(data[i]/total)));
+				context.lineTo(center_X, center_Y);
+				context.fill();
+				angle+=Math.PI*2*(data[i]/total);
+			}
+		}
+	</script>
+</body>
+</html>

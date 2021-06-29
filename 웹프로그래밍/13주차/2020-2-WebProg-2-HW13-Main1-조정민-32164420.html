@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>단어장 만들기</title>
+</head>
+<body>
+	<h3>나의 단어장 만들기</h3>
+	<hr>
+	<div>
+		영어 <input id="english" type="text">
+	</div>
+	<div>
+		한글 <input id="korean" type="text">
+	</div>
+	<br>
+	<button id="save" onclick="store()">단어 저장</button>
+	<button id="retrieve" onclick="retrieve()">영단어 검색</button>
+	<button id="erase" onclick="erase()">단어 삭제</button>
+	<button id="viewAll" onclick="viewAll('view.html')">전체 보기</button>
+
+	<script>
+		const english = document.getElementById("english");
+		const korean = document.getElementById("korean");
+		let arr = [];
+		if(JSON.parse(localStorage.getItem('saveWord'))!==null){
+		JSON.parse(localStorage.getItem('saveWord')).forEach(function(result){
+			arr = JSON.parse(localStorage.getItem('saveWord'));
+		});
+	}
+		function store() {
+			if (!window.localStorage) {
+				alert("로컬스토리지를 지원하지 않습니다.");
+				return;
+			}
+			
+			let val1 = localStorage.getItem(english.value);
+			let entry = {
+			"english": english.value,
+			"korean": korean.value
+			}
+			if(val1){
+				if(confirm(english.value + "가 이미 있습니다. 수정하시겠습니까?")){
+					localStorage.setItem(english.value, korean.value);
+					let idx = arr.findIndex((element, index) => element.english === english.value);
+					arr[idx].korean = korean.value;
+					localStorage.setItem("saveWord", JSON.stringify(arr));
+					alert('단어를 저장했습니다.');
+					english.value = "";
+					korean.value = "";
+				}
+				else{
+					return false;
+				}
+			}
+			else{
+				localStorage.setItem(english.value, korean.value);
+				arr.push(entry);
+				localStorage.setItem("saveWord", JSON.stringify(arr));
+				alert('단어를 저장했습니다.');
+				english.value = "";
+				korean.value = "";
+			}
+		}
+		function retrieve() {
+			if (!window.localStorage) {
+				alert("로컬스토리지를 지원하지 않습니다.");
+				return;
+			}
+			let val2 = localStorage.getItem(english.value);
+			if(val2 == null)
+				alert(english.value + "는 없는 단어입니다.");
+			else
+				korean.value = val2;
+		}
+		function erase(){
+			let val3 = localStorage.getItem(english.value)
+			if(val3 == null){
+				alert('없는 단어입니다. 다시 입력해주세요.');
+			}
+			else{
+				let idx = arr.findIndex((element, index) => element.english === english.value);
+				arr.splice(idx, 1);
+				localStorage.setItem("saveWord", JSON.stringify(arr));
+				localStorage.removeItem(english.value);
+				alert('단어 삭제를 완료했습니다.');
+			}
+		}
+		function viewAll(){
+			let win = window.open('2020-2-WebProg-2-HW13-View-조정민-32164420.html', '_blank');
+			win.focus();
+		}
+</script>
+</body>
+</html>

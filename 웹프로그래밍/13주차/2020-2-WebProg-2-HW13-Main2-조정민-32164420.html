@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>단어장 만들기</title>
+	<style type="text/css">
+		span.english{
+			display: inline-block;
+			width: 100px;
+			height: 25px;
+			font-weight: bold;
+			text-align: center;
+			font-size: 18px;
+		}
+		span.korean{
+			display: inline-block;
+			font-weight: bold;
+			text-align: left;
+			font-size: 18px;
+		}
+		.order{
+			display: inline-block;
+			font-size: 18px;
+			font-weight: bold;
+			text-align: center;
+			width: 20px;
+			height: 28px;
+			background-color: rgb(236, 236, 222, 1);
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<h3>나의 단어장 만들기</h3>
+	<hr>
+	<div></div>
+<script>
+	const list = document.querySelector('div');
+	let arr = [];
+		if(JSON.parse(localStorage.getItem('saveWord'))!==null){
+		JSON.parse(localStorage.getItem('saveWord')).forEach(function(result){
+			arr = JSON.parse(localStorage.getItem('saveWord'));
+		});
+	}
+	for(var i=0; i<arr.length; i++){
+		list.innerHTML += `<div><span class="order">${i+1}</span><span class="english">${arr[i].english}</span>\t<span class="korean">${arr[i].korean}</span></div>`
+	}
+</script>
+</body>
+</html>

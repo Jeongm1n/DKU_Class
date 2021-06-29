@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>오디오 리스트 연속 재생</title>
+</head>
+<body>
+	<h2>오디오 리스트 연속 재생</h2>
+	<hr>
+	처음 play 버튼을 누르면 리스트에 있는 곡이 연속하여 자동 재생됩니다.
+	마우스로 다른 곡을 선택하면 곡이 바뀝니다.
+	next 버튼을 누르면 다음 곡으로 넘어갑니다.
+	<hr>
+	<div id="player"></div>
+	<br>
+	<select id="audio_select" size="3" style="width: 200px">
+		<option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">Song #1</option>
+		<option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3">Song #2</option>
+		<option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3">Song #3</option>
+	</select> 
+	<button onclick="play_audio()">play</button>
+	<button onclick="next_audio()">next</button>
+
+
+	<script>
+		const player = document.getElementById('player');
+		const select = document.getElementById('audio_select');
+		
+		function play_audio(){
+			let link = document.getElementById("audio_select").value;
+			if(select.selectedIndex === -1){
+				select.selectedIndex+=1;
+				player.innerHTML = 	`<audio id="audio" src="${select[0].value}" onended="ended_audio()" controls autoplay></audio>`;
+			}else {
+				player.innerHTML = 	`<audio id="audio" src="${link}" onended="ended_audio()" controls autoplay></audio>`;
+			}
+		}
+
+		function next_audio(){
+			let selectedIdx = select.selectedIndex+1;
+			select.selectedIndex+=1;
+
+			if(selectedIdx === select.length){
+				select.selectedIndex = 0;
+				player.innerHTML = 	`<audio id="audio" src="${select[0].value}" onended="ended_audio()" controls autoplay></audio>`;
+			} else {
+				player.innerHTML = 	`<audio id="audio" src="${select[selectedIdx].value}" onended="ended_audio()" controls autoplay></audio>`;
+			}
+		}
+
+		function ended_audio(){
+			let selectedIdx = select.selectedIndex+1;
+			select.selectedIndex+=1;
+
+			if(selectedIdx === select.length){
+				select.selectedIndex = 0;
+				player.innerHTML = 	`<audio id="audio" src="${select[0].value}" onended="ended_audio()" controls autoplay></audio>`;
+			} else {
+				player.innerHTML = 	`<audio id="audio" src="${select[selectedIdx].value}" onended="ended_audio()" controls autoplay></audio>`;
+			}
+		}
+	</script>
+</body>
+</html>

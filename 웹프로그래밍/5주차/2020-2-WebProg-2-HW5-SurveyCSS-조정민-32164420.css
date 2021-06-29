@@ -1,0 +1,32 @@
+html, body{
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#header{
+	display: block;
+	width: 100%;
+	height: 15%;
+	background-color: yellow;
+}
+
+#section{
+	display: block;
+	width: 100%;
+	height: 35%;
+	background-color: pink;
+	margin: 10px 10px;
+}
+
+#footer{
+	display: block;
+	width: 100%;
+	height: 3%;
+	background-color: plum;
+}
+
+h1{
+	text-align: center;
+}

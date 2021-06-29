@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>9주차과제</title>
+	<style type="text/css">
+		#ABC{
+			background-color: linen;
+			width: 150px;
+			height: 70px;
+			border: 2px solid pink;
+			padding-left: 10px;
+			font-style: italic;
+			font-size: 50px;
+			color: darkblue;
+		}
+		#result{
+			color: mediumpurple;
+			font-style: italic;
+		}
+	</style>
+</head>
+<body>
+	<h3>겜블링 게임</h3>
+	각 숫자를 클릭하면 0에서 2사이의 난수로 바뀝니다. 모두 같은 수가 나오면 승리합니다.
+	<hr>
+	<div id="ABC">
+		<span id="a" onclick="changeA()"> 0 </span>
+		<span id="b" onclick="changeB()"> 0 </span>
+		<span id="c" onclick="changeC()"> 0 </span>
+	</div>
+	<br>
+	<div id="result" onclick="again()"></div>
+
+	<script type="text/javascript">
+		let result = document.getElementById("result"),
+			num_A = document.getElementById("a"),
+			num_B = document.getElementById("b"),
+			num_C = document.getElementById("c");
+
+		function changeA(){
+			let randomNum = Math.floor(Math.random()*3);
+			num_A.innerHTML = randomNum;
+		}
+
+		function changeB(){
+			let randomNum = Math.floor(Math.random()*3);
+			num_B.innerHTML = randomNum;
+		}
+
+		function changeC(){
+			let randomNum = Math.floor(Math.random()*3);
+			num_C.innerHTML = randomNum;
+			if((num_A.innerHTML === num_B.innerHTML) &&(num_A.innerHTML === num_C.innerHTML)){
+				result.innerHTML = "Success(click here to do again)"
+			} else{
+				result.innerHTML = "fail(click here to do again)"
+			}
+		}
+
+		function again(){
+			num_A.innerHTML = 0,
+			num_B.innerHTML = 0,
+			num_C.innerHTML = 0,
+			result.innerHTML = '';
+		}
+	</script>
+</body>
+</html>

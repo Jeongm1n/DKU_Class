@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>11주차과제</title>
+	<style type="text/css">
+		body{
+			background-image: url("https://www.wallpaperuse.com/wallp/4-44977_m.jpg");
+			background-size: 100%;
+			background-repeat: no-repeat;
+		}
+		div{
+			color: white;
+			font-size: 2.2rem;
+			font-weight: bold;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<script>
+        setInterval("Rotate()",20);
+        const snow=[];
+        for(let i=0; i<30; i++){
+            snow[i]=0;
+        }
+        const topPoint=[];
+        const div=[];
+        for(let i=0; i<30; i++){
+            div[i]=document.createElement("div");
+            div[i].innerHTML="*";
+            document.body.appendChild(div[i]);
+            let x =Math.random()*1900;
+            let left=Math.floor(x);
+            let y =Math.random()*830;
+            let top=Math.floor(y);
+            div[i].style.left=left+"px";
+            div[i].style.top=top+"px";
+            topPoint[i]=top;
+        }
+        function Rotate(){
+            for(let i=0; i<30; i++){
+                snow[i]++;
+                div[i].style.top=topPoint[i]+snow[i]+"px";
+                const Max=topPoint[i]+snow[i];
+                if(Max>890){
+                    snow[i]=0;
+                    topPoint[i]=0;
+                    div[i].style.top=0+"px";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

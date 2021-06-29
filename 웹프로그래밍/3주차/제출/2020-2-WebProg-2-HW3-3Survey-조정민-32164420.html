@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>소프트웨어 기술 설문조사</title>
+</head>
+<body>
+	<header>
+		<h1>설문지</h1>
+		소프트웨어 기술에 대한 의견을 듣습니다. 많은 참여 부탁드립니다.
+	</header>
+	<hr>
+	<form>
+		<div>
+			학년
+			<input type="checkbox" name="grade1">1학년
+			<input type="checkbox" name="grade2">2학년
+			<input type="checkbox" name="garde3">3학년
+			<input type="checkbox" name="grade4">4학년
+		</div>
+		<br>
+		<div>
+			성별
+			<input type="checkbox" name="gender_m">남
+			<input type="checkbox" name="gender_f">여
+		</div>
+		<br>
+		<div>
+			관심 분야
+			<input type="text" list="tech">
+			<datalist id="tech">
+				<option value="모바일 소프트웨어"></option>
+				<option value="그래픽 소프트웨어"></option>
+				<option value="인터넷 소프트웨어"></option>
+				<option value="오락 게임 엔진"></option>
+			</datalist>
+		</div>
+		<br>
+		<div>
+			진로
+			<input type="checkbox" name="career1">1학년
+			<input type="checkbox" name="career2">2학년
+			<input type="checkbox" name="career3">3학년
+			<input type="checkbox" name="career4">4학년
+		</div>
+		<br>
+		<div>
+			남기고 싶은 말<br>
+			<textarea name="comment" rows="7" cols="40" wrap="virtual" placeholder="글을 남겨주세요."></textarea>
+		</div>
+	</form>
+	<footer>
+		<small><strong>Copyright 2020 by Jeongmin</strong></small>
+	</footer>
+</body>
+</html>

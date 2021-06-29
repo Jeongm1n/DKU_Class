@@ -1,0 +1,43 @@
+html, body{
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#header{
+	float: left;
+	position: relative;
+	width: 100%;
+	height: 20%;
+	background-color: yellow
+}
+
+#nav{
+	float: left;
+	position: relative;
+	width: 17%;
+	height: 800px;
+	background-color: orange;
+}
+
+#section{
+	float: left;
+	position: relative;
+	width: 83%;
+	height: 800px;
+	background-color: skyblue;
+}
+
+#footer{
+	width: 100%;
+	height: 10%;
+	background-color: plum;
+	position: relative;
+	clear: both;
+	float: left;
+}
+
+h1{
+	text-align: center;
+}
